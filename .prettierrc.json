@@ -7,7 +7,7 @@
   "trailingComma": "none",
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "arrowParens": "always",
+  "arrowParens": "avoid",
   "importOrder": [
     "@/pages/api/*",
     "@/pages/*",
