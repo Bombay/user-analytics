@@ -1,5 +1,5 @@
+import '@/styles/reset.css'
 import React from 'react'
-import '@/styles/reset.scss'
 import DefaultLayout from '@/layouts/DefaultLayout'
 import { CustomAppProps } from '@/types/nextjs'
 import {
@@ -12,6 +12,8 @@ import { RecoilRoot } from 'recoil'
 import { CacheProvider } from '@emotion/react'
 import createEmotionCache from '@/styles/createEmotionCache'
 import Head from 'next/head'
+import { ThemeProvider } from '@mui/material'
+import theme from '@/styles/theme'
 
 const clientStyleCache = createEmotionCache()
 
@@ -40,7 +42,9 @@ export default function App({
 							/>
 							<link rel="icon" href="/favicon.ico" />
 						</Head>
-						{getLayout(<Component {...pageProps} />)}
+						<ThemeProvider theme={theme}>
+							{getLayout(<Component {...pageProps} />)}
+						</ThemeProvider>
 					</CacheProvider>
 				</RecoilRoot>
 			</Hydrate>

@@ -7,5 +7,8 @@ function DefaultLayout({ children }: { children: ReactNode }) {
 export default DefaultLayout
 
 DefaultLayout.getLayout = (page: ReactNode) => (
-	<DefaultLayout>{page}</DefaultLayout>
+	<DefaultLayout>
+		lnb...
+		{page}
+	</DefaultLayout>
 )
