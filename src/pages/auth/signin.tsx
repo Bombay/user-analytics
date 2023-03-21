@@ -1,10 +1,10 @@
 import PlainLayout from '@/layouts/PlainLayout'
 import styled from '@emotion/styled'
-import { Container } from '@mui/material'
 import SignInContainer from '@/containers/auth/SignInContainer'
 
-const SignInWrapper = styled(Container)`
+const SignInWrapper = styled.div`
 	background: linear-gradient(135deg, #ff986f, #9406aa);
+	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;

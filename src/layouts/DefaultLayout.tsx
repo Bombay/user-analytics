@@ -1,15 +1,20 @@
 import { ReactNode } from 'react'
 import { Grid } from '@mui/material'
-import Lnb from '@/containers/navigation/Lnb'
+import LnbContainer from '@/containers/navigation/LnbContainer'
+import styled from '@emotion/styled'
+
+const DefaultLayoutWrapper = styled.div`
+	display: grid;
+	grid-template-columns: 250px 1fr;
+`
 
 function DefaultLayout({ children }: { children: ReactNode }) {
 	return (
-		<Grid container>
-			<Grid item>
-				<Lnb />
-			</Grid>
-			<Grid item>{children}</Grid>
-		</Grid>
+		<DefaultLayoutWrapper>
+			{/*@todo 폭이 좁아질 경우(sm 이하) 얇은 아이콘 모음으로 교체*/}
+			<LnbContainer />
+			<Grid container>{children}</Grid>
+		</DefaultLayoutWrapper>
 	)
 }
 
