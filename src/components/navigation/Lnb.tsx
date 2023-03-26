@@ -15,6 +15,7 @@ import {
 	Settings
 } from '@mui/icons-material'
 import Link from 'next/link'
+import ReportEditorModal from '@/containers/report/ReportEditorModal'
 
 export enum MenuIconEnum {
 	SelfService = 'SelfService'
@@ -92,8 +93,8 @@ interface StyledMenuItemProps extends MenuItemProps {
 }
 
 const MenuIconWrapper = styled(ListItemIcon)`
-	&.MuiListItemIcon-root {
-		min-width: 30px;
+	.MuiListItemIcon-root {
+		min-width: 25px;
 	}
 `
 
@@ -113,7 +114,7 @@ const StyledMenuItem = styled(MenuItem)<StyledMenuItemProps>`
 	}
 `
 
-const DriveFileRenameOutlineIcon = styled(DriveFileRenameOutline)`
+const WriteIcon = styled(DriveFileRenameOutline)`
 	margin-right: 7px;
 `
 
@@ -139,7 +140,7 @@ function Lnb({ menuList, currentMenuId }: LnbProps) {
 					<span>유저 모니터링</span>
 				</LnbTitle>
 				<CreateReportButton variant="contained" size="small">
-					<DriveFileRenameOutlineIcon fontSize="small" />
+					<WriteIcon fontSize="small" />
 					리포트 생성
 				</CreateReportButton>
 			</LnbHeader>
@@ -163,6 +164,7 @@ function Lnb({ menuList, currentMenuId }: LnbProps) {
 					</StyledMenuItem>
 				))}
 			</MenuList>
+			<ReportEditorModal />
 		</LnbWrapper>
 	)
 }

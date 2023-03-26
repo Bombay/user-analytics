@@ -22,6 +22,8 @@ export default function App({
 	pageProps,
 	emotionCache = clientStyleCache
 }: CustomAppProps) {
+	console.log('app...', Component)
+
 	const getLayout = Component.getLayout || DefaultLayout.getLayout
 	/**
 	 * ssr 시 싱글톤 객체 오염 방지
