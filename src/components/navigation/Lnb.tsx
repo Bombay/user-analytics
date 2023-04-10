@@ -6,19 +6,18 @@ import {
 	MenuItem,
 	MenuItemProps,
 	MenuList,
-	SvgIconProps
+	SvgIconProps,
 } from '@mui/material'
 import {
 	ContentPasteSearch,
 	CookieTwoTone,
 	DriveFileRenameOutline,
-	Settings
+	Settings,
 } from '@mui/icons-material'
 import Link from 'next/link'
-import ReportEditorModal from '@/containers/report/ReportEditorModal'
 
 export enum MenuIconEnum {
-	SelfService = 'SelfService'
+	SelfService = 'SelfService',
 }
 
 export interface Menu {
@@ -164,7 +163,6 @@ function Lnb({ menuList, currentMenuId }: LnbProps) {
 					</StyledMenuItem>
 				))}
 			</MenuList>
-			<ReportEditorModal />
 		</LnbWrapper>
 	)
 }
