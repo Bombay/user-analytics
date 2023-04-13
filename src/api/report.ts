@@ -5,37 +5,47 @@ import {
 	ReportVariableType,
 } from '@/modules/report'
 
-const fetch = <T>(data: T) =>
+const reports: Report[] = [
+	{
+		id: 1,
+		title: '셀프서비스',
+		variables: [
+			{
+				id: 1,
+				name: 'Sales',
+				type: ReportVariableType.Number,
+				format: ReportVariableFormat.Integer,
+			},
+			{
+				id: 2,
+				name: 'ARPU',
+				type: ReportVariableType.Number,
+				format: ReportVariableFormat.Float,
+			},
+		],
+	},
+]
+
+const dummyFetch = <T>(data: T) =>
 	new Promise<T>(resolve => {
 		setTimeout(() => resolve(data), 100)
 	})
 
-export async function fetchReports() {
-	const reports: Report[] = [
-		{
-			id: 1,
-			title: '셀프서비스',
-			variables: [
-				{
-					id: 1,
-					name: 'Sales',
-					type: ReportVariableType.Number,
-					format: ReportVariableFormat.Integer,
-				},
-				{
-					id: 2,
-					name: 'ARPU',
-					type: ReportVariableType.Number,
-					format: ReportVariableFormat.Float,
-				},
-			],
-		},
-	]
-
-	return fetch<Report[]>(reports)
+export async function fetchReport(reportId: Report['id']) {
+	return dummyFetch<Report | undefined>(
+		reports.find(report => report.id === reportId)
+	)
 }
 
-export async function fetchReportVariables(reportId: Report['id']) {
+export async function fetchReports() {
+	return dummyFetch<Report[]>(reports)
+}
+
+/**
+ * reportId 없을 경우 전체 variables return
+ * @param reportId
+ */
+export async function fetchReportVariables(reportId?: Report['id']) {
 	const variables: ReportVariable[] = [
 		{
 			id: 1,
@@ -57,7 +67,7 @@ export async function fetchReportVariables(reportId: Report['id']) {
 		},
 	]
 
-	return fetch<ReportVariable[]>(variables)
+	return dummyFetch<ReportVariable[]>(variables)
 }
 
 export async function saveReport(report: Report) {}
