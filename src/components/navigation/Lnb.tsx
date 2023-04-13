@@ -88,28 +88,28 @@ const SettingIcon = styled(Settings)`
 `
 
 interface StyledMenuItemProps extends MenuItemProps {
-	active: boolean
+	selected: boolean
 }
 
 const MenuIconWrapper = styled(ListItemIcon)`
-	.MuiListItemIcon-root {
-		min-width: 25px;
+	& .MuiSvgIcon-root {
+		min-width: 30px;
 	}
 `
 
 const StyledMenuItem = styled(MenuItem)<StyledMenuItemProps>`
 	margin-bottom: 7px;
 	font-size: 14px;
-	color: ${props => (props.active ? '#000000' : '#646873')};
+	color: ${props => (props.selected ? '#000000' : '#646873')};
 	background-color: ${props =>
-		props.active ? 'rgba(0, 0, 0, 0.04)' : '#FFFFFF'};
+		props.selected ? 'rgba(0, 0, 0, 0.04)' : '#FFFFFF'};
 
 	&:hover {
 		color: #000000;
 	}
 
 	${MenuIconWrapper} {
-		color: ${props => (props.active ? '#000000' : '#646873')};
+		color: ${props => (props.selected ? '#000000' : '#646873')};
 	}
 `
 
@@ -149,7 +149,7 @@ function Lnb({ menuList, currentMenuId }: LnbProps) {
 					<StyledMenuItem
 						key={menu.id}
 						sx={{ borderRadius: '10px' }}
-						active={currentMenuId === menu.id}
+						selected={currentMenuId === menu.id}
 					>
 						<MenuIconWrapper>
 							<MenuIcon icon={menu.icon} fontSize="small" />

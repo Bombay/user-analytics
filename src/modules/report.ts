@@ -3,6 +3,8 @@ export enum ReportVariableFormat {
 	Integer = 'integer',
 	Percent = 'percent',
 	Float = 'float',
+	Date = 'date',
+	DateTime = 'datetime'
 }
 
 export enum ReportVariableType {

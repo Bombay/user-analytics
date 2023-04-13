@@ -1,5 +1,14 @@
 import { createTheme } from '@mui/material'
+import LocalFont from 'next/font/local'
 
-const theme = createTheme({})
+export const font = LocalFont({
+	src: './fonts/notoSansKR/NotoSansKR-Regular.otf',
+})
+
+const theme = createTheme({
+	typography: {
+		fontFamily: font.style.fontFamily,
+	},
+})
 
 export default theme
